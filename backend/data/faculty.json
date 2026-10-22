@@ -1,0 +1,1125 @@
+[
+  {
+    "id": "FAC001",
+    "name": "Prof. Deepa Shah",
+    "designation": "Associate Professor",
+    "department": "Department of Computer Applications",
+    "subjects": [
+      "SUB001",
+      "SUB005",
+      "SUB009",
+      "SUB013",
+      "SUB017",
+      "SUB021",
+      "SUB073",
+      "SUB076",
+      "SUB107",
+      "SUB110",
+      "SUB121"
+    ],
+    "semesters": [
+      1,
+      3,
+      5
+    ],
+    "branch": "bsc_ds",
+    "profileImage": null
+  },
+  {
+    "id": "FAC002",
+    "name": "Dr. Arvind Sharma",
+    "designation": "Professor & HOD",
+    "department": "Department of Computer Applications",
+    "subjects": [
+      "SUB002",
+      "SUB006",
+      "SUB010",
+      "SUB014",
+      "SUB018",
+      "SUB022",
+      "SUB024",
+      "SUB028",
+      "SUB032",
+      "SUB109"
+    ],
+    "semesters": [
+      1,
+      3,
+      5
+    ],
+    "branch": "bsc_ds",
+    "profileImage": null
+  },
+  {
+    "id": "FAC003",
+    "name": "Dr. Satvik Khara",
+    "designation": "Professor & Head (CE)",
+    "department": "Computer Engineering",
+    "subjects": [
+      "SUB036",
+      "SUB041",
+      "SUB046",
+      "SUB066",
+      "SUB069",
+      "SUB072",
+      "SUB148",
+      "SUB151",
+      "SUB154"
+    ],
+    "semesters": [
+      3,
+      5,
+      7
+    ],
+    "branch": "btech_ce",
+    "profileImage": null
+  },
+  {
+    "id": "FAC004",
+    "name": "Prof. Neha Patel",
+    "designation": "Associate Professor",
+    "department": "Information Technology",
+    "subjects": [
+      "SUB049",
+      "SUB051",
+      "SUB053",
+      "SUB055"
+    ],
+    "semesters": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "branch": "btech_it",
+    "profileImage": null
+  },
+  {
+    "id": "FAC005",
+    "name": "Dr. Rajesh Kumar",
+    "designation": "Associate Professor",
+    "department": "Computer Engineering",
+    "subjects": [
+      "SUB037",
+      "SUB042",
+      "SUB047"
+    ],
+    "semesters": [
+      1,
+      3,
+      4,
+      7
+    ],
+    "branch": "btech_ce",
+    "profileImage": null
+  },
+  {
+    "id": "FAC006",
+    "name": "Prof. Priya Desai",
+    "designation": "Assistant Professor",
+    "department": "Department of Computer Applications",
+    "subjects": [
+      "SUB025",
+      "SUB029",
+      "SUB033",
+      "SUB074",
+      "SUB077"
+    ],
+    "semesters": [
+      1,
+      3,
+      4,
+      5
+    ],
+    "branch": "bca",
+    "profileImage": null
+  },
+  {
+    "id": "FAC007",
+    "name": "Dr. Suresh Mehta",
+    "designation": "Associate Professor",
+    "department": "Department of Computer Applications",
+    "subjects": [
+      "SUB003",
+      "SUB007",
+      "SUB011",
+      "SUB015",
+      "SUB019",
+      "SUB120"
+    ],
+    "semesters": [
+      1,
+      2,
+      6
+    ],
+    "branch": "bsc_ds",
+    "profileImage": null
+  },
+  {
+    "id": "FAC008",
+    "name": "Prof. Anita Joshi",
+    "designation": "Assistant Professor",
+    "department": "Department of Computer Applications",
+    "subjects": [
+      "SUB004",
+      "SUB008",
+      "SUB012",
+      "SUB016",
+      "SUB020"
+    ],
+    "semesters": [
+      2,
+      3
+    ],
+    "branch": "bsc_ds",
+    "profileImage": null
+  },
+  {
+    "id": "FAC009",
+    "name": "Dr. Vikram Singh",
+    "designation": "Professor (AI & ML)",
+    "department": "Computer Engineering",
+    "subjects": [
+      "SUB057",
+      "SUB059",
+      "SUB061",
+      "SUB063"
+    ],
+    "semesters": [
+      4,
+      5,
+      7
+    ],
+    "branch": "btech_aiml",
+    "profileImage": null
+  },
+  {
+    "id": "FAC010",
+    "name": "Prof. Kavita Rao",
+    "designation": "Assistant Professor",
+    "department": "Department of Computer Applications",
+    "subjects": [
+      "SUB026",
+      "SUB030"
+    ],
+    "semesters": [
+      2,
+      4
+    ],
+    "branch": "bca",
+    "profileImage": null
+  },
+  {
+    "id": "FAC011",
+    "name": "Dr. Amit Trivedi",
+    "designation": "Associate Professor",
+    "department": "Computer Engineering",
+    "subjects": [
+      "SUB038",
+      "SUB043",
+      "SUB048",
+      "SUB147",
+      "SUB150",
+      "SUB153"
+    ],
+    "semesters": [
+      4,
+      8
+    ],
+    "branch": "btech_ce",
+    "profileImage": null
+  },
+  {
+    "id": "FAC012",
+    "name": "Prof. Hardik Vyas",
+    "designation": "Assistant Professor",
+    "department": "Computer Engineering",
+    "subjects": [
+      "SUB034",
+      "SUB039",
+      "SUB044"
+    ],
+    "semesters": [
+      2,
+      5,
+      6
+    ],
+    "branch": "btech_ce",
+    "profileImage": null
+  },
+  {
+    "id": "FAC013",
+    "name": "Prof. Pooja Dave",
+    "designation": "Assistant Professor",
+    "department": "Department of Computer Applications",
+    "subjects": [
+      "SUB023",
+      "SUB027",
+      "SUB031",
+      "SUB075",
+      "SUB078",
+      "SUB119",
+      "SUB122"
+    ],
+    "semesters": [
+      2,
+      4,
+      5
+    ],
+    "branch": "bca",
+    "profileImage": null
+  },
+  {
+    "id": "FAC014",
+    "name": "Dr. Bhavesh Parmar",
+    "designation": "Associate Professor",
+    "department": "Information Technology",
+    "subjects": [
+      "SUB050",
+      "SUB052",
+      "SUB054",
+      "SUB056"
+    ],
+    "semesters": [
+      2,
+      4,
+      6
+    ],
+    "branch": "btech_it",
+    "profileImage": null
+  },
+  {
+    "id": "FAC015",
+    "name": "Dr. Manish Patel",
+    "designation": "Professor & Head (Cyber Security)",
+    "department": "Department of Computer Applications",
+    "subjects": [
+      "SUB067",
+      "SUB070",
+      "SUB085",
+      "SUB087",
+      "SUB089",
+      "SUB108"
+    ],
+    "semesters": [
+      1,
+      3,
+      4,
+      5,
+      6
+    ],
+    "branch": "bsc_csdf",
+    "profileImage": null
+  },
+  {
+    "id": "FAC016",
+    "name": "Prof. Sneha Shah",
+    "designation": "Assistant Professor",
+    "department": "Department of Computer Applications",
+    "subjects": [
+      "SUB065",
+      "SUB068",
+      "SUB071",
+      "SUB086",
+      "SUB088",
+      "SUB090"
+    ],
+    "semesters": [
+      2,
+      5,
+      7,
+      8
+    ],
+    "branch": "bsc_csdf",
+    "profileImage": null
+  },
+  {
+    "id": "FAC017",
+    "name": "Dr. Keyur Chauhan",
+    "designation": "Professor & Head (Mechanical)",
+    "department": "Mechanical Engineering",
+    "subjects": [
+      "SUB091",
+      "SUB093",
+      "SUB095",
+      "SUB097"
+    ],
+    "semesters": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "branch": "btech_me",
+    "profileImage": null
+  },
+  {
+    "id": "FAC018",
+    "name": "Prof. Rakesh Bhavsar",
+    "designation": "Associate Professor",
+    "department": "Mechanical Engineering",
+    "subjects": [
+      "SUB092",
+      "SUB094",
+      "SUB096",
+      "SUB098"
+    ],
+    "semesters": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "branch": "btech_me",
+    "profileImage": null
+  },
+  {
+    "id": "FAC019",
+    "name": "Dr. Darshan Shah",
+    "designation": "Professor & Head (Civil)",
+    "department": "Civil Engineering",
+    "subjects": [
+      "SUB099",
+      "SUB101",
+      "SUB103",
+      "SUB105"
+    ],
+    "semesters": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "branch": "btech_cl",
+    "profileImage": null
+  },
+  {
+    "id": "FAC020",
+    "name": "Prof. Kruti Joshi",
+    "designation": "Associate Professor",
+    "department": "Civil Engineering",
+    "subjects": [
+      "SUB100",
+      "SUB102",
+      "SUB104",
+      "SUB106"
+    ],
+    "semesters": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "branch": "btech_cl",
+    "profileImage": null
+  },
+  {
+    "id": "FAC021",
+    "name": "Dr. Hemal Pandya",
+    "designation": "Professor & Dean (Science)",
+    "department": "Department of Science & Mathematics",
+    "subjects": [
+      "SUB079",
+      "SUB081",
+      "SUB083",
+      "SUB111",
+      "SUB113"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "branch": "bsc_cs",
+    "profileImage": null
+  },
+  {
+    "id": "FAC022",
+    "name": "Prof. Bhavin Raval",
+    "designation": "Assistant Professor",
+    "department": "Department of Science & Mathematics",
+    "subjects": [
+      "SUB080",
+      "SUB082",
+      "SUB084",
+      "SUB112",
+      "SUB114"
+    ],
+    "semesters": [
+      4,
+      5,
+      6
+    ],
+    "branch": "bsc_cs",
+    "profileImage": null
+  },
+  {
+    "id": "FAC023",
+    "name": "Dr. Nilay Dave",
+    "designation": "Professor & Director (Management)",
+    "department": "Department of Management Studies",
+    "subjects": [
+      "SUB115",
+      "SUB117"
+    ],
+    "semesters": [
+      1,
+      3
+    ],
+    "branch": "mba",
+    "profileImage": null
+  },
+  {
+    "id": "FAC024",
+    "name": "Prof. Shalini Varma",
+    "designation": "Associate Professor",
+    "department": "Department of Management Studies",
+    "subjects": [
+      "SUB116",
+      "SUB118"
+    ],
+    "semesters": [
+      2,
+      4
+    ],
+    "branch": "mba",
+    "profileImage": null
+  },
+  {
+    "id": "FAC025",
+    "name": "Dr. Pratik Patel",
+    "designation": "Associate Professor (AI Research)",
+    "department": "Computer Engineering",
+    "subjects": [
+      "SUB058",
+      "SUB060",
+      "SUB062",
+      "SUB064"
+    ],
+    "semesters": [
+      2,
+      5,
+      6,
+      8
+    ],
+    "branch": "btech_aiml",
+    "profileImage": null
+  },
+  {
+    "id": "FAC026",
+    "name": "Dr. Hitesh Barot",
+    "designation": "Professor & Head (Chemical)",
+    "department": "Chemical Engineering",
+    "subjects": [
+      "SUB123",
+      "SUB125",
+      "SUB127",
+      "SUB129"
+    ],
+    "semesters": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "branch": "btech_ch",
+    "profileImage": null
+  },
+  {
+    "id": "FAC027",
+    "name": "Prof. Alok Trivedi",
+    "designation": "Associate Professor",
+    "department": "Chemical Engineering",
+    "subjects": [
+      "SUB124",
+      "SUB126",
+      "SUB128",
+      "SUB130"
+    ],
+    "semesters": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "branch": "btech_ch",
+    "profileImage": null
+  },
+  {
+    "id": "FAC028",
+    "name": "Dr. Vimal Patel",
+    "designation": "Professor & Head (Electrical)",
+    "department": "Electrical Engineering",
+    "subjects": [
+      "SUB131",
+      "SUB133",
+      "SUB135",
+      "SUB137"
+    ],
+    "semesters": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "branch": "btech_ee",
+    "profileImage": null
+  },
+  {
+    "id": "FAC029",
+    "name": "Prof. Manish Trivedi",
+    "designation": "Associate Professor",
+    "department": "Electrical Engineering",
+    "subjects": [
+      "SUB132",
+      "SUB134",
+      "SUB136",
+      "SUB138"
+    ],
+    "semesters": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "branch": "btech_ee",
+    "profileImage": null
+  },
+  {
+    "id": "FAC030",
+    "name": "Dr. Shailesh Thakkar",
+    "designation": "Professor & Head (Aeronautical)",
+    "department": "Aeronautical Engineering",
+    "subjects": [
+      "SUB139",
+      "SUB141",
+      "SUB143",
+      "SUB145"
+    ],
+    "semesters": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "branch": "btech_aero",
+    "profileImage": null
+  },
+  {
+    "id": "FAC031",
+    "name": "Prof. Viral Shah",
+    "designation": "Associate Professor",
+    "department": "Aeronautical Engineering",
+    "subjects": [
+      "SUB140",
+      "SUB142",
+      "SUB144",
+      "SUB146"
+    ],
+    "semesters": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "branch": "btech_aero",
+    "profileImage": null
+  },
+  {
+    "id": "FAC032",
+    "name": "Dr. Rushabh Shah",
+    "designation": "Professor & Principal",
+    "department": "Computer Engineering",
+    "subjects": [
+      "SUB035",
+      "SUB040",
+      "SUB045",
+      "SUB149",
+      "SUB152"
+    ],
+    "semesters": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "branch": "btech_cse",
+    "profileImage": null
+  },
+  {
+    "id": "FAC033",
+    "name": "Prof. Mital Patel",
+    "designation": "Associate Professor (ECE)",
+    "department": "Electronics & Communication Engineering",
+    "subjects": [
+      "SUB155",
+      "SUB156",
+      "SUB157",
+      "SUB158",
+      "SUB159",
+      "SUB160",
+      "SUB161",
+      "SUB162"
+    ],
+    "semesters": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "branch": "btech_ec",
+    "profileImage": null
+  },
+  {
+    "id": "FAC034",
+    "name": "Dr. Chirag Patel",
+    "designation": "Associate Professor (Microbiology)",
+    "department": "Department of Science & Mathematics",
+    "subjects": [
+      "SUB171",
+      "SUB172",
+      "SUB173",
+      "SUB174",
+      "SUB175",
+      "SUB176"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "branch": "bsc_micro",
+    "profileImage": null
+  },
+  {
+    "id": "FAC035",
+    "name": "Dr. Meera Desai",
+    "designation": "Associate Professor (Chemistry)",
+    "department": "Department of Science & Mathematics",
+    "subjects": [
+      "SUB177",
+      "SUB178",
+      "SUB179",
+      "SUB180",
+      "SUB181",
+      "SUB182"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "branch": "bsc_chem",
+    "profileImage": null
+  },
+  {
+    "id": "FAC036",
+    "name": "Prof. Swati Dave",
+    "designation": "Assistant Professor (Biotechnology)",
+    "department": "Department of Science & Mathematics",
+    "subjects": [
+      "SUB183",
+      "SUB184",
+      "SUB185",
+      "SUB186",
+      "SUB187",
+      "SUB188"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "branch": "bsc_biotech",
+    "profileImage": null
+  },
+  {
+    "id": "FAC037",
+    "name": "Dr. Gaurav Tandon",
+    "designation": "Professor (Finance & Marketing)",
+    "department": "Department of Management Studies",
+    "subjects": [
+      "SUB189",
+      "SUB191",
+      "SUB193"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "branch": "bba",
+    "profileImage": null
+  },
+  {
+    "id": "FAC038",
+    "name": "Prof. Aarti Mehta",
+    "designation": "Associate Professor (HR & Ops)",
+    "department": "Department of Management Studies",
+    "subjects": [
+      "SUB190",
+      "SUB192",
+      "SUB194"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "branch": "bba",
+    "profileImage": null
+  },
+  {
+    "id": "FAC039",
+    "name": "Dr. Ramesh Chandra",
+    "designation": "Professor & Dean (Commerce)",
+    "department": "Department of Commerce",
+    "subjects": [
+      "SUB195",
+      "SUB197",
+      "SUB199"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "branch": "bcom",
+    "profileImage": null
+  },
+  {
+    "id": "FAC040",
+    "name": "Prof. Hetal Soni",
+    "designation": "Associate Professor (Accountancy)",
+    "department": "Department of Commerce",
+    "subjects": [
+      "SUB196",
+      "SUB198",
+      "SUB200"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "branch": "bcom",
+    "profileImage": null
+  },
+  {
+    "id": "FAC041",
+    "name": "Dr. Kalpesh Gaur",
+    "designation": "Professor & Principal (Pharmacy)",
+    "department": "Department of Pharmaceutical Sciences",
+    "subjects": [
+      "SUB201",
+      "SUB203",
+      "SUB205",
+      "SUB207",
+      "SUB209",
+      "SUB211"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "branch": "bpharm",
+    "profileImage": null
+  },
+  {
+    "id": "FAC042",
+    "name": "Dr. Jignasa Modi",
+    "designation": "Professor (Pharmaceutics)",
+    "department": "Department of Pharmaceutical Sciences",
+    "subjects": [
+      "SUB202",
+      "SUB204",
+      "SUB206",
+      "SUB208",
+      "SUB210",
+      "SUB212"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "branch": "dpharm",
+    "profileImage": null
+  },
+  {
+    "id": "FAC043",
+    "name": "Dr. Rekha Kumari",
+    "designation": "Professor & Dean (Law)",
+    "department": "Department of Legal Studies",
+    "subjects": [
+      "SUB213",
+      "SUB215",
+      "SUB217",
+      "SUB219",
+      "SUB221",
+      "SUB223",
+      "SUB225",
+      "SUB227",
+      "SUB229",
+      "SUB231"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "branch": "ballb",
+    "profileImage": null
+  },
+  {
+    "id": "FAC044",
+    "name": "Prof. Aniruddh Jadeja",
+    "designation": "Associate Professor (Jurisprudence)",
+    "department": "Department of Legal Studies",
+    "subjects": [
+      "SUB214",
+      "SUB216",
+      "SUB218",
+      "SUB220",
+      "SUB222",
+      "SUB224",
+      "SUB226",
+      "SUB228",
+      "SUB230",
+      "SUB232"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "branch": "bballb",
+    "profileImage": null
+  },
+  {
+    "id": "FAC045",
+    "name": "Capt. R. K. Nair",
+    "designation": "Professor & Director (Aviation)",
+    "department": "Department of Aviation Technology",
+    "subjects": [
+      "SUB233",
+      "SUB234",
+      "SUB235",
+      "SUB236",
+      "SUB237",
+      "SUB238"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "branch": "bsc_av",
+    "profileImage": null
+  },
+  {
+    "id": "FAC046",
+    "name": "Prof. Amit Sen",
+    "designation": "Head of Dept (Animation & VFX)",
+    "department": "Department of Animation & Multimedia",
+    "subjects": [
+      "SUB239",
+      "SUB240",
+      "SUB241",
+      "SUB242",
+      "SUB243",
+      "SUB244"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "branch": "bsc_anim",
+    "profileImage": null
+  },
+  {
+    "id": "FAC047",
+    "name": "Dr. Urvi Joshi",
+    "designation": "Associate Professor (Physiotherapy)",
+    "department": "Department of Physiotherapy",
+    "subjects": [
+      "SUB245",
+      "SUB246",
+      "SUB247",
+      "SUB248",
+      "SUB249",
+      "SUB250",
+      "SUB251",
+      "SUB252"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "branch": "bpt",
+    "profileImage": null
+  },
+  {
+    "id": "FAC048",
+    "name": "Dr. Sarita Patel",
+    "designation": "Principal & Professor (Nursing)",
+    "department": "Department of Nursing",
+    "subjects": [
+      "SUB253",
+      "SUB254",
+      "SUB255",
+      "SUB256",
+      "SUB257",
+      "SUB258",
+      "SUB259",
+      "SUB260"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "branch": "bsc_nurs",
+    "profileImage": null
+  },
+  {
+    "id": "FAC049",
+    "name": "Dr. Anupama Sharma",
+    "designation": "Professor & Head (Biotechnology)",
+    "department": "Biotechnology Engineering",
+    "subjects": [
+      "SUB163",
+      "SUB165",
+      "SUB167",
+      "SUB169"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "branch": "btech_biotech",
+    "profileImage": null
+  },
+  {
+    "id": "FAC050",
+    "name": "Prof. Kunal Patel",
+    "designation": "Associate Professor (Biotechnology)",
+    "department": "Biotechnology Engineering",
+    "subjects": [
+      "SUB164",
+      "SUB166",
+      "SUB168",
+      "SUB170"
+    ],
+    "semesters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "branch": "btech_biotech",
+    "profileImage": null
+  },
+  {
+    "id": "FAC051",
+    "name": "Prof. Arvind Trivedi",
+    "designation": "Professor",
+    "department": "Computer Engineering",
+    "email": "arvind.trivedi@apexuniversity.edu.in",
+    "phone": "+91 98222 33445",
+    "subjects": [
+      "sub-zgyxeml"
+    ],
+    "semesters": [
+      1,
+      2
+    ],
+    "photoUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "FAC052",
+    "name": "Prof. Arvind Trivedi",
+    "designation": "Professor",
+    "department": "Computer Engineering",
+    "email": "arvind.trivedi@apexuniversity.edu.in",
+    "phone": "+91 98222 33445",
+    "subjects": [],
+    "semesters": [
+      1,
+      2
+    ],
+    "photoUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
+  }
+]

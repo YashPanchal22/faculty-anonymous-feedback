@@ -1,0 +1,220 @@
+[
+  {
+    "id": "student1",
+    "username": "student1",
+    "password": "student123",
+    "role": "student",
+    "name": "Aarav Sharma",
+    "program": "bsc_ds",
+    "semester": 3,
+    "enrollmentNumber": "22010204001",
+    "department": "Department of Computer Applications"
+  },
+  {
+    "id": "student2",
+    "username": "student2",
+    "password": "student123",
+    "role": "student",
+    "name": "Priya Patel",
+    "program": "bsc_ds",
+    "semester": 5,
+    "enrollmentNumber": "21010204018",
+    "department": "Department of Computer Applications"
+  },
+  {
+    "id": "student3",
+    "username": "student3",
+    "password": "student123",
+    "role": "student",
+    "name": "Rohan Mehta",
+    "program": "btech_ce",
+    "semester": 3,
+    "enrollmentNumber": "22010101045",
+    "department": "Computer Engineering"
+  },
+  {
+    "id": "student4",
+    "username": "student4",
+    "password": "student123",
+    "role": "student",
+    "name": "Ananya Iyer",
+    "program": "bca",
+    "semester": 2,
+    "enrollmentNumber": "23010201012",
+    "department": "Department of Computer Applications"
+  },
+  {
+    "id": "student5",
+    "username": "student5",
+    "password": "student123",
+    "role": "student",
+    "name": "Devansh Trivedi",
+    "program": "btech_aiml",
+    "semester": 4,
+    "enrollmentNumber": "22010107033",
+    "department": "Computer Engineering"
+  },
+  {
+    "id": "student6",
+    "username": "student6",
+    "password": "student123",
+    "role": "student",
+    "name": "Kavya Joshi",
+    "program": "mba",
+    "semester": 2,
+    "enrollmentNumber": "23010601019",
+    "department": "Department of Management Studies"
+  },
+  {
+    "id": "student7",
+    "username": "student7",
+    "password": "student123",
+    "role": "student",
+    "name": "Nikhil Varma",
+    "program": "bpharm",
+    "semester": 3,
+    "enrollmentNumber": "22010801024",
+    "department": "Department of Pharmaceutical Sciences"
+  },
+  {
+    "id": "student8",
+    "username": "student8",
+    "password": "student123",
+    "role": "student",
+    "name": "Tanvi Shah",
+    "program": "ballb",
+    "semester": 3,
+    "enrollmentNumber": "22010901015",
+    "department": "Department of Legal Studies"
+  },
+  {
+    "id": "faculty1",
+    "username": "faculty1",
+    "password": "faculty123",
+    "role": "faculty",
+    "name": "Prof. Deepa Shah",
+    "facultyId": "FAC001",
+    "designation": "Associate Professor",
+    "department": "Department of Computer Applications",
+    "employeeId": "EMP-APX-1042"
+  },
+  {
+    "id": "faculty2",
+    "username": "faculty2",
+    "password": "faculty123",
+    "role": "faculty",
+    "name": "Dr. Arvind Sharma",
+    "facultyId": "FAC002",
+    "designation": "Professor & HOD",
+    "department": "Department of Computer Applications",
+    "employeeId": "EMP-APX-1002"
+  },
+  {
+    "id": "faculty3",
+    "username": "faculty3",
+    "password": "faculty123",
+    "role": "faculty",
+    "name": "Dr. Satvik Khara",
+    "facultyId": "FAC003",
+    "designation": "Professor & Head (CE)",
+    "department": "Computer Engineering",
+    "employeeId": "EMP-APX-1001"
+  },
+  {
+    "id": "faculty4",
+    "username": "faculty4",
+    "password": "faculty123",
+    "role": "faculty",
+    "name": "Prof. Neha Patel",
+    "facultyId": "FAC004",
+    "designation": "Associate Professor",
+    "department": "Information Technology",
+    "employeeId": "EMP-APX-1025"
+  },
+  {
+    "id": "faculty5",
+    "username": "faculty5",
+    "password": "faculty123",
+    "role": "faculty",
+    "name": "Dr. Vikram Singh",
+    "facultyId": "FAC009",
+    "designation": "Professor (AI & ML)",
+    "department": "Computer Engineering",
+    "employeeId": "EMP-APX-1088"
+  },
+  {
+    "id": "faculty6",
+    "username": "faculty6",
+    "password": "faculty123",
+    "role": "faculty",
+    "name": "Dr. Nilay Dave",
+    "facultyId": "FAC023",
+    "designation": "Professor & Director (Management)",
+    "department": "Department of Management Studies",
+    "employeeId": "EMP-APX-1015"
+  },
+  {
+    "id": "faculty7",
+    "username": "faculty7",
+    "password": "faculty123",
+    "role": "faculty",
+    "name": "Dr. Hemal Pandya",
+    "facultyId": "FAC021",
+    "designation": "Professor & Dean (Science)",
+    "department": "Department of Science & Mathematics",
+    "employeeId": "EMP-APX-1018"
+  },
+  {
+    "id": "faculty8",
+    "username": "faculty8",
+    "password": "faculty123",
+    "role": "faculty",
+    "name": "Dr. Kalpesh Gaur",
+    "facultyId": "FAC041",
+    "designation": "Professor & Principal (Pharmacy)",
+    "department": "Department of Pharmaceutical Sciences",
+    "employeeId": "EMP-APX-1033"
+  },
+  {
+    "id": "faculty9",
+    "username": "faculty9",
+    "password": "faculty123",
+    "role": "faculty",
+    "name": "Dr. Rekha Kumari",
+    "facultyId": "FAC043",
+    "designation": "Professor & Dean (Law)",
+    "department": "Department of Legal Studies",
+    "employeeId": "EMP-APX-1055"
+  },
+  {
+    "id": "admin",
+    "username": "admin",
+    "password": "admin123",
+    "role": "admin",
+    "name": "Dr. K. N. Verma",
+    "designation": "Dean of Academic Affairs & IQAC Director",
+    "department": "Academic Governance"
+  },
+  {
+    "id": "usr-fac051",
+    "username": "faculty51",
+    "password": "faculty123",
+    "name": "Prof. Vikram Mehta 8392",
+    "role": "faculty",
+    "department": "Department of Computer Engineering",
+    "email": "vikram.mehta.8392@apexuniversity.edu.in",
+    "employeeId": "EMP-APX-1051",
+    "facultyId": "FAC051"
+  },
+  {
+    "id": "usr-fac052",
+    "username": "faculty52",
+    "password": "faculty123",
+    "name": "Prof. Vikram Mehta 2484",
+    "role": "faculty",
+    "department": "Department of Computer Engineering",
+    "email": "vikram.mehta.2484@apexuniversity.edu.in",
+    "employeeId": "EMP-APX-1052",
+    "facultyId": "FAC052"
+  }
+]
