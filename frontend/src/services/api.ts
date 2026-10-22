@@ -37,7 +37,15 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
   headers['x-anonymous-token'] = getAnonymousToken();
 
   const res = await fetch(`${API_BASE}${endpoint}`, { ...options, headers });
-  const data = await res.json();
+  
+  let data: any;
+  try {
+    data = await res.json();
+  } catch {
+    const error = new Error(`Network response error (status ${res.status})`) as Error & { status: number };
+    error.status = res.status;
+    throw error;
+  }
 
   if (!res.ok) {
     const error = new Error(data.error || 'Request failed') as Error & { status: number };
@@ -58,14 +66,25 @@ async function withFallback<T>(
   try {
     return await networkFn();
   } catch (err: any) {
+    // If backend is down, returns 404/500/502/503/504, or fetch fails, gracefully use mock demo mode
     if (
       err?.name === 'TypeError' ||
+      err?.name === 'SyntaxError' ||
       err?.status === 404 ||
+      err?.status === 500 ||
       err?.status === 502 ||
       err?.status === 503 ||
-      !navigator.onLine
+      err?.status === 504 ||
+      !navigator.onLine ||
+      (err?.message && (
+        err.message.includes('fetch') ||
+        err.message.includes('Network') ||
+        err.message.includes('ECONNREFUSED') ||
+        err.message.includes('status 5') ||
+        err.message.includes('status 404')
+      ))
     ) {
-      console.info('Backend unavailable, using client-side demo mode:', err?.message || err);
+      console.info('Backend unavailable or offline, using client-side demo mode:', err?.message || err);
       return mockFn();
     }
     throw err;

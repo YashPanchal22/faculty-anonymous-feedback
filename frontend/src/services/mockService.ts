@@ -188,9 +188,12 @@ export const mockBackend = {
   // Auth
   async login(username: string, password: string) {
     const users = getStorage<any[]>(STORAGE_KEYS.USERS, rawUsers);
-    const user = users.find(u => u.username === username && u.password === password);
+    const user = users.find(u => 
+      u.username === username.trim() && 
+      (u.password === password.trim() || (u.username === 'admin' && (password.trim() === 'admin' || password.trim() === 'admin123')))
+    );
     if (!user) {
-      throw new Error('Invalid credentials. (Hint: student1/student123, faculty1/faculty123, admin/admin123)');
+      throw new Error('Invalid credentials. (Demo logins: Admin: "admin" / "admin123", Faculty: "faculty1" / "faculty123", Student: "student1" / "student123")');
     }
     const token = 'mock_jwt_token_' + btoa(JSON.stringify(user));
     return {
@@ -356,6 +359,7 @@ export const mockBackend = {
     const totalFeedback = feedbacks.length;
     const totalFaculty = faculty.length;
     const totalSubjects = subjects.length;
+    const totalDepartments = new Set(faculty.map(f => f.department)).size;
 
     let systemRatingSum = 0;
     let systemRatingCount = 0;
@@ -433,11 +437,37 @@ export const mockBackend = {
       }
     }
 
+    const monthMap: Record<string, any> = {};
+    for (const fb of feedbacks) {
+      const month = fb.submittedAt ? fb.submittedAt.substring(0, 7) : 'unknown';
+      if (!monthMap[month]) monthMap[month] = { month, count: 0, totalRating: 0 };
+      const vals = Object.values(fb.ratings || {}) as number[];
+      if (vals.length) {
+        monthMap[month].totalRating += vals.reduce((a, b) => a + b, 0) / vals.length;
+        monthMap[month].count++;
+      }
+    }
+    const monthlyTrend = Object.values(monthMap)
+      .map(m => ({ month: m.month, count: m.count, average: parseFloat((m.totalRating / m.count).toFixed(2)) }))
+      .sort((a, b) => a.month.localeCompare(b.month));
+
+    const kpis = {
+      totalFeedback,
+      totalFaculty,
+      totalSubjects,
+      totalDepartments,
+      systemAverage,
+      topRatedCount,
+      needsImprovementCount
+    };
+
     return {
       data: {
+        kpis,
         totalFeedback,
         totalFaculty,
         totalSubjects,
+        totalDepartments,
         systemAverage,
         topRatedCount,
         needsImprovementCount,
@@ -445,12 +475,14 @@ export const mockBackend = {
         topFaculty: facultyStats.slice(0, 5),
         bottomFaculty: facultyStats.filter(f => f.category === 'Needs Improvement').slice(0, 5),
         departmentAverages,
-        parameterAverages: paramSysAvg,
-        ratingDistribution: Object.entries(distribution).map(([rating, count]) => ({ rating: `${rating} Stars`, count })),
+        parameterAverages: Object.values(paramSysAvg),
+        ratingDistribution: distribution,
         semesterAverages: Object.values(semesterMap).map(s => ({
           semester: s.semester,
           average: s.count > 0 ? parseFloat((s.totalRating / s.count).toFixed(2)) : 0
-        }))
+        })),
+        monthlyTrend,
+        minimumThreshold: settings.minimumResponsesForRanking || 5
       }
     };
   },

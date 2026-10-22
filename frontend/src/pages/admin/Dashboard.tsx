@@ -77,13 +77,20 @@ export default function AdminDashboard() {
 
   const facultyRankings = data?.facultyRankings || [];
   const departmentAverages = data?.departmentAverages || [];
-  const parameterAverages = data?.parameterAverages || [];
+  const parameterAverages = Array.isArray(data?.parameterAverages)
+    ? data.parameterAverages
+    : (data?.parameterAverages ? Object.values(data.parameterAverages) : []);
   const ratingDistribution = data?.ratingDistribution || {};
 
-  const distChartData = Object.entries(ratingDistribution).map(([star, count]) => ({
-    name: `${star} Star`,
-    count: count as number,
-  }));
+  const distChartData = Array.isArray(ratingDistribution)
+    ? ratingDistribution.map((item: any, idx: number) => ({
+        name: item.name || item.rating || `${idx + 1} Star`,
+        count: typeof item.count === 'number' ? item.count : 0,
+      }))
+    : Object.entries(ratingDistribution).map(([star, count]) => ({
+        name: `${star} Star`,
+        count: count as number,
+      }));
 
   const COLORS = ['#ef4444', '#f97316', '#eab308', '#3b82f6', '#10b981'];
 

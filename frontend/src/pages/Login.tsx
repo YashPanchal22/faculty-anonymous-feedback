@@ -21,18 +21,34 @@ import {
   HelpCircle,
   Phone,
   Mail,
-  ExternalLink
+  ExternalLink,
+  Sparkles
 } from 'lucide-react';
 
 export default function Login() {
   const [activeTab, setActiveTab] = useState<'student' | 'faculty' | 'admin'>('student');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('student1');
+  const [password, setPassword] = useState('student123');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPw, setShowPw] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuth();
+
+  const handleTabChange = (tab: 'student' | 'faculty' | 'admin') => {
+    setActiveTab(tab);
+    setError('');
+    if (tab === 'student') {
+      setUsername('student1');
+      setPassword('student123');
+    } else if (tab === 'faculty') {
+      setUsername('faculty1');
+      setPassword('faculty123');
+    } else if (tab === 'admin') {
+      setUsername('admin');
+      setPassword('admin123');
+    }
+  };
 
   // Forgot password modal state
   const [showForgotModal, setShowForgotModal] = useState(false);
@@ -189,10 +205,10 @@ export default function Login() {
                   <span className="text-[11px] text-slate-400 font-medium">Select access tier</span>
                 </div>
 
-                <div className="grid grid-cols-3 gap-1.5 p-1 bg-slate-100 dark:bg-slate-800/60 rounded-xl">
+                <div className="grid grid-cols-3 gap-1.5 p-1 bg-slate-100 dark:bg-slate-800/60 rounded-xl mb-3">
                   <button
                     type="button"
-                    onClick={() => { setActiveTab('student'); setError(''); }}
+                    onClick={() => handleTabChange('student')}
                     className={`flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-bold transition-all ${
                       activeTab === 'student'
                         ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-white shadow-sm'
@@ -204,7 +220,7 @@ export default function Login() {
 
                   <button
                     type="button"
-                    onClick={() => { setActiveTab('faculty'); setError(''); }}
+                    onClick={() => handleTabChange('faculty')}
                     className={`flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-bold transition-all ${
                       activeTab === 'faculty'
                         ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-white shadow-sm'
@@ -216,7 +232,7 @@ export default function Login() {
 
                   <button
                     type="button"
-                    onClick={() => { setActiveTab('admin'); setError(''); }}
+                    onClick={() => handleTabChange('admin')}
                     className={`flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-bold transition-all ${
                       activeTab === 'admin'
                         ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-white shadow-sm'
@@ -224,6 +240,26 @@ export default function Login() {
                     }`}
                   >
                     <Shield size={14} /> Authority
+                  </button>
+                </div>
+
+                {/* Quick Auto-Fill Credentials Bar */}
+                <div className="flex items-center justify-between px-3 py-2 bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900/50 rounded-xl text-xs text-indigo-700 dark:text-indigo-300">
+                  <div className="flex items-center gap-1.5 text-[11px] font-medium">
+                    <Sparkles size={13} className="text-indigo-600 dark:text-indigo-400 flex-shrink-0" />
+                    <span>Demo Login: <strong className="font-mono bg-white/70 dark:bg-slate-800 px-1 py-0.5 rounded">{activeTab === 'student' ? 'student1 / student123' : activeTab === 'faculty' ? 'faculty1 / faculty123' : 'admin / admin123'}</strong></span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (activeTab === 'student') { setUsername('student1'); setPassword('student123'); }
+                      else if (activeTab === 'faculty') { setUsername('faculty1'); setPassword('faculty123'); }
+                      else { setUsername('admin'); setPassword('admin123'); }
+                      setError('');
+                    }}
+                    className="text-[11px] font-extrabold text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-200 underline"
+                  >
+                    Auto-Fill
                   </button>
                 </div>
               </div>
