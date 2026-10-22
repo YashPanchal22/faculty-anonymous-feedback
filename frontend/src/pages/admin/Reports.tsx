@@ -106,7 +106,7 @@ export default function AdminReports() {
           ['Total Anonymous Student Submissions', `${kpis.totalFeedback}`],
           ['Total Faculty Evaluated', `${kpis.totalFaculty}`],
           ['Total Academic Courses Evaluated', `${kpis.totalSubjects}`],
-          ['Institutional Overall Rating Average', `${kpis.systemAverage.toFixed(2)} / 5.00`],
+          ['Institutional Overall Rating Average', `${(kpis?.systemAverage != null ? kpis.systemAverage : 0).toFixed(2)} / 5.00`],
           ['Top Rated Faculty Count (>= 4.5 Stars)', `${kpis.topRatedCount}`],
           ['Faculty Requiring Development (< 3.5 Stars)', `${kpis.needsImprovementCount}`],
         ],

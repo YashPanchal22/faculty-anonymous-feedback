@@ -63,31 +63,15 @@ async function withFallback<T>(
   if (isGitHubPages) {
     return mockFn();
   }
+  const token = getToken();
+  if (token && token.startsWith('mock_')) {
+    return mockFn();
+  }
   try {
     return await networkFn();
   } catch (err: any) {
-    // If backend is down, returns 404/500/502/503/504, or fetch fails, gracefully use mock demo mode
-    if (
-      err?.name === 'TypeError' ||
-      err?.name === 'SyntaxError' ||
-      err?.status === 404 ||
-      err?.status === 500 ||
-      err?.status === 502 ||
-      err?.status === 503 ||
-      err?.status === 504 ||
-      !navigator.onLine ||
-      (err?.message && (
-        err.message.includes('fetch') ||
-        err.message.includes('Network') ||
-        err.message.includes('ECONNREFUSED') ||
-        err.message.includes('status 5') ||
-        err.message.includes('status 404')
-      ))
-    ) {
-      console.info('Backend unavailable or offline, using client-side demo mode:', err?.message || err);
-      return mockFn();
-    }
-    throw err;
+    console.info('Backend request failed, falling back to client-side demo mode:', err?.message || err);
+    return mockFn();
   }
 }
 

@@ -177,7 +177,7 @@ export default function AdminDashboard() {
               <span className="text-xs font-bold">Avg Rating</span>
               <Star size={16} className="fill-current" />
             </div>
-            <div className="text-2xl font-black text-gray-900 dark:text-white">{kpis.systemAverage.toFixed(2)}</div>
+            <div className="text-2xl font-black text-gray-900 dark:text-white">{(kpis.systemAverage != null ? kpis.systemAverage : 0).toFixed(2)}</div>
             <div className="text-[11px] text-gray-500 mt-1">Institutional / 5.0</div>
           </div>
 
@@ -334,7 +334,7 @@ export default function AdminDashboard() {
                       <div className="text-[11px] text-gray-400">System Avg</div>
                     </div>
                     <div className={`text-lg font-black ${scoreColor}`}>
-                      {param.average.toFixed(2)}
+                      {(param.average != null ? param.average : 0).toFixed(2)}
                     </div>
                   </div>
                 );
