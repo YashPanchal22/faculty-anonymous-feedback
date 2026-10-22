@@ -1,7 +1,14 @@
 // API Service Layer for Faculty Feedback System
-// Handles all HTTP requests with JWT auth header injection
+// Automatically detects GitHub Pages or offline mode and provides complete standalone demo functionality.
 
-const API_BASE = '/api';
+import { mockBackend } from './mockService';
+
+const isGitHubPages = typeof window !== 'undefined' && (
+  window.location.hostname.includes('github.io') ||
+  window.location.protocol === 'file:'
+);
+
+const API_BASE = (import.meta as any).env?.VITE_API_BASE_URL || '/api';
 
 function getToken(): string | null {
   return localStorage.getItem('token');
@@ -41,82 +48,195 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
   return data;
 }
 
+async function withFallback<T>(
+  networkFn: () => Promise<T>,
+  mockFn: () => Promise<T>
+): Promise<T> {
+  if (isGitHubPages) {
+    return mockFn();
+  }
+  try {
+    return await networkFn();
+  } catch (err: any) {
+    if (
+      err?.name === 'TypeError' ||
+      err?.status === 404 ||
+      err?.status === 502 ||
+      err?.status === 503 ||
+      !navigator.onLine
+    ) {
+      console.info('Backend unavailable, using client-side demo mode:', err?.message || err);
+      return mockFn();
+    }
+    throw err;
+  }
+}
+
 // Auth
 export const authAPI = {
   login: (username: string, password: string) =>
-    request<{ success: boolean; token: string; user: any }>('/auth/login', {
-      method: 'POST',
-      body: JSON.stringify({ username, password }),
-    }),
-  forgotPassword: (username: string) =>
-    request<{ success: boolean; message: string; verificationCode?: string; role?: string; name?: string }>(
-      '/auth/forgot-password',
-      {
-        method: 'POST',
-        body: JSON.stringify({ username }),
-      }
+    withFallback(
+      () =>
+        request<{ success: boolean; token: string; user: any }>('/auth/login', {
+          method: 'POST',
+          body: JSON.stringify({ username, password }),
+        }),
+      () => mockBackend.login(username, password)
     ),
+
+  forgotPassword: (username: string) =>
+    withFallback(
+      () =>
+        request<{ success: boolean; message: string; verificationCode?: string; role?: string; name?: string }>(
+          '/auth/forgot-password',
+          {
+            method: 'POST',
+            body: JSON.stringify({ username }),
+          }
+        ),
+      () => mockBackend.forgotPassword(username)
+    ),
+
   resetPassword: (payload: { username: string; code: string; newPassword: string }) =>
-    request<{ success: boolean; message: string }>('/auth/reset-password', {
-      method: 'POST',
-      body: JSON.stringify(payload),
-    }),
+    withFallback(
+      () =>
+        request<{ success: boolean; message: string }>('/auth/reset-password', {
+          method: 'POST',
+          body: JSON.stringify(payload),
+        }),
+      () => mockBackend.resetPassword(payload)
+    ),
 };
 
 // Student endpoints
 export const studentAPI = {
-  getPrograms: () => request<{ data: any[] }>('/programs'),
-  getSemesters: (program: string) => request<{ data: any[] }>(`/semesters?program=${program}`),
+  getPrograms: () =>
+    withFallback(
+      () => request<{ data: any[] }>('/programs'),
+      () => mockBackend.getPrograms()
+    ),
+
+  getSemesters: (program: string) =>
+    withFallback(
+      () => request<{ data: any[] }>(`/semesters?program=${program}`),
+      () => mockBackend.getSemesters(program)
+    ),
+
   getSubjects: (program: string, semester: number) =>
-    request<{ data: any[] }>(`/subjects?program=${program}&semester=${semester}`),
+    withFallback(
+      () => request<{ data: any[] }>(`/subjects?program=${program}&semester=${semester}`),
+      () => mockBackend.getSubjects(program, semester)
+    ),
+
   getFaculty: (subjectId?: string, program?: string, semester?: number) => {
     const params = new URLSearchParams();
     if (subjectId) params.append('subjectId', subjectId);
     if (program) params.append('program', program);
     if (semester) params.append('semester', String(semester));
     const query = params.toString() ? `?${params.toString()}` : '';
-    return request<{ data: any[] }>(`/faculty${query}`);
+
+    return withFallback(
+      () => request<{ data: any[] }>(`/faculty${query}`),
+      () => mockBackend.getFaculty(subjectId, program, semester)
+    );
   },
+
   submitFeedback: (payload: any) =>
-    request<{ success: boolean; message: string; feedbackId: string }>('/feedback', {
-      method: 'POST',
-      body: JSON.stringify(payload),
-    }),
+    withFallback(
+      () =>
+        request<{ success: boolean; message: string; feedbackId: string }>('/feedback', {
+          method: 'POST',
+          body: JSON.stringify(payload),
+        }),
+      () => mockBackend.submitFeedback(payload)
+    ),
 };
 
 // Faculty endpoints
 export const facultyAPI = {
-  getMyProfile: () => request<{ data: any }>('/faculty/me'),
-  getMyPerformance: () => request<{ data: any }>('/faculty/me/performance'),
+  getMyProfile: () =>
+    withFallback(
+      () => request<{ data: any }>('/faculty/me'),
+      () => mockBackend.getMyProfile()
+    ),
+
+  getMyPerformance: () =>
+    withFallback(
+      () => request<{ data: any }>('/faculty/me/performance'),
+      () => mockBackend.getMyPerformance()
+    ),
 };
 
 // Admin endpoints
 export const adminAPI = {
-  getDashboard: () => request<{ data: any }>('/admin/dashboard'),
-  getAllFaculty: () => request<{ data: any[] }>('/admin/faculty'),
-  getFacultyDetail: (id: string) => request<{ data: any }>(`/admin/faculty/${id}/detail`),
-  getAnalytics: () => request<{ data: any }>('/admin/analytics'),
+  getDashboard: () =>
+    withFallback(
+      () => request<{ data: any }>('/admin/dashboard'),
+      () => mockBackend.getDashboard()
+    ),
+
+  getAllFaculty: () =>
+    withFallback(
+      () => request<{ data: any[] }>('/admin/faculty'),
+      () => mockBackend.getAllFaculty()
+    ),
+
+  getFacultyDetail: (id: string) =>
+    withFallback(
+      () => request<{ data: any }>(`/admin/faculty/${id}/detail`),
+      () => mockBackend.getFacultyDetail(id)
+    ),
+
+  getAnalytics: () =>
+    withFallback(
+      () => request<{ data: any }>('/admin/analytics'),
+      () => mockBackend.getAnalytics()
+    ),
+
   getFeedback: (params?: Record<string, string>) => {
     const query = params ? '?' + new URLSearchParams(params).toString() : '';
-    return request<{ data: any[]; total: number }>(`/admin/feedback${query}`);
+    return withFallback(
+      () => request<{ data: any[]; total: number }>(`/admin/feedback${query}`),
+      () => mockBackend.getFeedback(params)
+    );
   },
+
   getReportData: (facultyId?: string) => {
     const query = facultyId ? `?facultyId=${facultyId}` : '';
-    return request<{ data: any }>(`/admin/reports/json${query}`);
+    return withFallback(
+      () => request<{ data: any }>(`/admin/reports/json${query}`),
+      () => mockBackend.getReportData(facultyId)
+    );
   },
-  getSettings: () => request<{ data: any }>('/admin/settings'),
+
+  getSettings: () =>
+    withFallback(
+      () => request<{ data: any }>('/admin/settings'),
+      () => mockBackend.getSettings()
+    ),
+
   updateSettings: (settings: any) =>
-    request<{ success: boolean; data: any }>('/admin/settings', {
-      method: 'POST',
-      body: JSON.stringify(settings),
-    }),
+    withFallback(
+      () =>
+        request<{ success: boolean; data: any }>('/admin/settings', {
+          method: 'POST',
+          body: JSON.stringify(settings),
+        }),
+      () => mockBackend.updateSettings(settings)
+    ),
+
   getCSVUrl: () => {
     const token = getToken();
     return `${API_BASE}/admin/reports/csv?token=${token}`;
   },
+
   // Academic Catalog Management CRUD
   getCatalog: () =>
-    request<{ success: boolean; data: { programs: any[]; subjects: any[]; faculty: any[] } }>('/admin/catalog'),
+    withFallback(
+      () => request<{ success: boolean; data: { programs: any[]; subjects: any[]; faculty: any[] } }>('/admin/catalog'),
+      () => mockBackend.getCatalog()
+    ),
+
   createFaculty: (facultyData: {
     name: string;
     designation: string;
@@ -125,17 +245,27 @@ export const adminAPI = {
     phone?: string;
     semesters?: number[];
   }) =>
-    request<{ success: boolean; message: string; data: any; credentials: { username: string; defaultPassword: string } }>(
-      '/admin/faculty',
-      {
-        method: 'POST',
-        body: JSON.stringify(facultyData),
-      }
+    withFallback(
+      () =>
+        request<{ success: boolean; message: string; data: any; credentials: { username: string; defaultPassword: string } }>(
+          '/admin/faculty',
+          {
+            method: 'POST',
+            body: JSON.stringify(facultyData),
+          }
+        ),
+      () => mockBackend.createFaculty(facultyData)
     ),
+
   deleteFaculty: (id: string) =>
-    request<{ success: boolean; message: string }>(`/admin/faculty/${id}`, {
-      method: 'DELETE',
-    }),
+    withFallback(
+      () =>
+        request<{ success: boolean; message: string }>(`/admin/faculty/${id}`, {
+          method: 'DELETE',
+        }),
+      () => mockBackend.deleteFaculty(id)
+    ),
+
   createProgram: (programData: {
     name: string;
     degree: string;
@@ -144,14 +274,24 @@ export const adminAPI = {
     totalSemesters: number;
     code?: string;
   }) =>
-    request<{ success: boolean; message: string; data: any }>('/admin/programs', {
-      method: 'POST',
-      body: JSON.stringify(programData),
-    }),
+    withFallback(
+      () =>
+        request<{ success: boolean; message: string; data: any }>('/admin/programs', {
+          method: 'POST',
+          body: JSON.stringify(programData),
+        }),
+      () => mockBackend.createProgram(programData)
+    ),
+
   deleteProgram: (id: string) =>
-    request<{ success: boolean; message: string }>(`/admin/programs/${id}`, {
-      method: 'DELETE',
-    }),
+    withFallback(
+      () =>
+        request<{ success: boolean; message: string }>(`/admin/programs/${id}`, {
+          method: 'DELETE',
+        }),
+      () => mockBackend.deleteProgram(id)
+    ),
+
   createSubject: (subjectData: {
     code: string;
     name: string;
@@ -160,12 +300,21 @@ export const adminAPI = {
     credits: number;
     facultyId: string;
   }) =>
-    request<{ success: boolean; message: string; data: any }>('/admin/subjects', {
-      method: 'POST',
-      body: JSON.stringify(subjectData),
-    }),
+    withFallback(
+      () =>
+        request<{ success: boolean; message: string; data: any }>('/admin/subjects', {
+          method: 'POST',
+          body: JSON.stringify(subjectData),
+        }),
+      () => mockBackend.createSubject(subjectData)
+    ),
+
   deleteSubject: (id: string) =>
-    request<{ success: boolean; message: string }>(`/admin/subjects/${id}`, {
-      method: 'DELETE',
-    }),
+    withFallback(
+      () =>
+        request<{ success: boolean; message: string }>(`/admin/subjects/${id}`, {
+          method: 'DELETE',
+        }),
+      () => mockBackend.deleteSubject(id)
+    ),
 };
